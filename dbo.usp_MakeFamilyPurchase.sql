@@ -1,4 +1,4 @@
-USE [Sql_Test]
+п»їUSE [Sql_Test]
 GO
 SET ANSI_NULLS ON
 GO
@@ -18,6 +18,6 @@ BEGIN
 		                       FROM dbo.Basket b)
 		 WHERE SurName = @FamilySurName;
 	ELSE
-		RAISERROR ('Такой семьи нет', -1, -1);
+		RAISERROR ('РўР°РєРѕР№ СЃРµРјСЊРё РЅРµС‚', -1, -1);
 END
 GO
