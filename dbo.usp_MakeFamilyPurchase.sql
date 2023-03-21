@@ -14,7 +14,7 @@ BEGIN
 	 WHERE f.SurName = @FamilySurName;
 	IF @cnt > 0 
 		UPDATE dbo.Family
-		  SET BudgetValue = (SELECT SUM(b.Value)
+		  SET BudgetValue = BudgetValue - (SELECT SUM(b.Value)
 		                       FROM dbo.Basket b)
 		 WHERE SurName = @FamilySurName;
 	ELSE
