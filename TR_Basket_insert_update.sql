@@ -15,15 +15,15 @@ BEGIN
 		 FROM dbo.Basket b
 		 JOIN inserted i on i.ID = b.ID
 		WHERE b.ID_SKU IN (SELECT ID_SKU
-							 FROM inserted
-							 GROUP BY ID_SKU
-							 HAVING COUNT(ID_SKU) > 1);
+				     FROM inserted
+				     GROUP BY ID_SKU
+				     HAVING COUNT(ID_SKU) > 1);
     UPDATE dbo.Basket
 	     SET DiscountValue = 0
 		 FROM dbo.Basket b
 		 JOIN inserted i on i.ID = b.ID
 		WHERE b.ID_SKU IN (SELECT ID_SKU
-							 FROM inserted
-							 GROUP BY ID_SKU
-							 HAVING COUNT(ID_SKU) = 1);
+				     FROM inserted
+				     GROUP BY ID_SKU
+				     HAVING COUNT(ID_SKU) = 1);
 END
